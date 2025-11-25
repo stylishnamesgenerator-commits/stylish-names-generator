@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stylish Names Generator</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    :root {
+      --bg1: #0a0f24;
+      --bg2: #11182e;
+      --card: #1a2342;
+      --text: #e6ebff;
+      --accent1: #00eaff;
+      --accent2: #6a5cff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: var(--card);
+      padding: 32px;
+      border-radius: 18px;
+      width: 100%;
+      max-width: 520px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 14px;
+    }
+
+    p {
+      opacity: 0.85;
+      margin-bottom: 22px;
+      font-size: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 17px;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      color: #021027;
+      transition: 0.25s;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+
+    .output-box {
+      background: rgba(255,255,255,0.07);
+      padding: 16px;
+      border-radius: 10px;
+      margin-top: 15px;
+      min-height: 50px;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(255,255,255,0.08);
+      display: none;
+    }
+
+    /* CTA Button */
+    .cta-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--accent1), var(--accent2));
+      color: #021027;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+      transition: 0.25s;
+    }
+
+    .cta-btn:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+    <h1>Stylish Names Generator</h1>
+    <p>Generate stylish, fancy, and unique text for usernames, bios, and gaming names.</p>
+
+    <input type="text" id="userInput" placeholder="Enter your name...">
+
+    <button onclick="generateName()">Generate Stylish Name</button>
+
+    <div id="output" class="output-box"></div>
+
+    <!-- CTA BUTTON -->
+    <a href="https://stylishnamesgenerator.com/" class="cta-btn" target="_blank">
+      Visit Full Website →
+    </a>
+  </div>
+
+  <script>
+    function generateName() {
+      const name = document.getElementById("userInput").value.trim();
+      const outputBox = document.getElementById("output");
+
+      if (name === "") {
+        outputBox.style.display = "block";
+        outputBox.innerHTML = "Please enter a name!";
+        return;
+      }
+
+      const styles = [
+        `☆° ${name} °☆`,
+        `★彡 ${name} 彡★`,
+        `✦ ${name} ✦`,
+        `${name} ⚡`,
+        `꧁ ${name} ꧂`,
+        `✿ ${name} ✿`,
+        `◥█◣ ${name} ◢█◤`,
+        `${name} 💎`,
+        `${name} 𓆩♡𓆪`,
+        `『${name}』`
+      ];
+
+      const randomStyle = styles[Math.floor(Math.random() * styles.length)];
+
+      outputBox.style.display = "block";
+      outputBox.innerHTML = randomStyle;
+    }
+  </script>
+
+</body>
+</html>
